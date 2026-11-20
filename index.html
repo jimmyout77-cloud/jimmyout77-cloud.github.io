@@ -1,78 +1,98 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LIVEKING4K | Official Website</title>
+<title>RAKAI | Official Website</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{background:#0a0a0c;color:#fff;font-family:Arial,sans-serif;padding-bottom:40px}
-.nav{position:sticky;top:0;z-index:100;background:#0a0a0c;border-bottom:1px solid #222;display:flex;justify-content:space-between;align-items:center;padding:12px 18px}
-.logo{font-size:22px;font-weight:900}.logo span{color:#FFD700}.logo i{color:#FF0000;font-style:normal}
-.nav-sub{background:#FF0000;color:#fff;padding:9px 18px;border-radius:50px;font-weight:800;text-decoration:none}
-.hero{max-width:1100px;margin:24px auto;padding:0 18px;display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:center}
-.hero h1{font-size:58px;line-height:.95}.hero h1 em{color:#FFD700;font-style:normal}.hero h1 i{color:#FF0000;font-style:normal}
+*{margin:0;padding:0;box-sizing:border-box}body{background:#0a0a0c;color:#fff;font-family:Arial,sans-serif;padding-bottom:80px}
+.nav{position:sticky;top:0;z-index:100;background:#000;border-bottom:1px solid #222;display:flex;justify-content:space-between;align-items:center;padding:12px 18px}
+.logo{font-size:26px;font-weight:900;color:#FF0000;letter-spacing:1px}
+.nav-links{display:flex;gap:18px;font-weight:700;font-size:14px}.nav-links a{color:#fff;text-decoration:none}
+.nav-sub{background:#FF0000;color:#fff;padding:9px 18px;border-radius:8px;font-weight:800;text-decoration:none}
+.live-dot{position:fixed;top:70px;right:16px;z-index:99;background:#0f2a18;border:1px solid #1e5c32;color:#7dff9e;padding:8px 14px;border-radius:50px;font-size:12px;font-weight:800;display:flex;gap:6px;align-items:center;box-shadow:0 0 18px #22ff77}
+.live-dot i{width:9px;height:9px;background:#22ff77;border-radius:50%;display:inline-block;animation:blink 1s infinite}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(34,255,119,.7)}50%{opacity:.3;box-shadow:0 0 0 6px rgba(34,255,119,0)}}
+.hero{max-width:1100px;margin:24px auto;padding:0 18px;text-align:center}
+.hero h1{font-size:64px;line-height:.9}.hero h1 span{color:#FF0000}
 .hero p{color:#aaa;margin:12px 0 16px;line-height:1.5}
-.stats{display:flex;gap:10px;flex-wrap:wrap}.stat{background:#141418;border:1px solid #222;border-radius:14px;padding:10px 16px}.stat b{font-size:22px;color:#FFD700;display:block}.stat span{font-size:11px;color:#888}
-.btns{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}.btn-red{background:#FF0000;color:#fff;padding:14px 26px;border-radius:50px;font-weight:800;text-decoration:none}.btn-ghost{background:#fff;color:#000;padding:14px 26px;border-radius:50px;font-weight:800;text-decoration:none}
-.hero-box{background:#111;border:1px solid #222;border-radius:20px;padding:12px}.hero-box label{font-size:12px;color:#FFD700;font-weight:800}
-#heroPlayer{width:100%;height:480px;border-radius:14px;border:0;background:#000;margin-top:10px}
+.stats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.stat{background:#141418;border:1px solid #222;border-radius:14px;padding:10px 16px;min-width:110px}.stat b{font-size:22px;color:#FF0000;display:block}.stat span{font-size:11px;color:#888}
+.btns{display:flex;gap:10px;margin-top:16px;justify-content:center;flex-wrap:wrap}.btn-red{background:#FF0000;color:#fff;padding:14px 26px;border-radius:8px;font-weight:800;text-decoration:none}.btn-ghost{background:#fff;color:#000;padding:14px 26px;border-radius:8px;font-weight:800;text-decoration:none}
+.hero-box{max-width:1100px;margin:20px auto;padding:0 18px}.hero-box-inner{background:#111;border:1px solid #222;border-radius:20px;padding:12px}.hero-box-inner label{font-size:12px;color:#FF0000;font-weight:800}
+#heroPlayer{width:100%;height:520px;border-radius:14px;border:0;background:#000;margin-top:10px}
 .mini{display:flex;gap:10px;margin-top:10px}.mini button,.mini a{flex:1;padding:12px;border-radius:50px;font-weight:800;border:0;text-align:center;text-decoration:none;font-size:14px}.like-btn{background:#222;color:#fff}.sub-btn{background:#FF0000;color:#fff}
 .sec{max-width:1100px;margin:28px auto 0;padding:0 18px}.sec h2{font-size:26px;margin-bottom:6px}.sec p{color:#888;font-size:14px;margin-bottom:12px}
-.status{background:#0f2a18;border:1px solid #1e5c32;color:#7dff9e;padding:10px 14px;border-radius:50px;font-size:13px;display:inline-block;margin-bottom:16px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{background:#141418;border:1px solid #222;border-radius:20px;padding:12px}.card-top{display:flex;justify-content:space-between;margin-bottom:10px}.num{background:#FFD700;color:#000;padding:6px 12px;border-radius:50px;font-weight:800;font-size:12px}.tag{color:#888;font-size:12px}
-iframe.video{width:100%;height:450px;border-radius:12px;border:0;background:#000}.acts{display:flex;gap:10px;margin-top:10px}.acts button,.acts a{flex:1;padding:12px;border-radius:50px;font-weight:800;border:0;text-align:center;text-decoration:none;font-size:14px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{background:#141418;border:1px solid #222;border-radius:20px;padding:12px}.card-top{display:flex;justify-content:space-between;margin-bottom:10px}.num{background:#FF0000;color:#fff;padding:6px 12px;border-radius:50px;font-weight:800;font-size:12px}.tag{color:#888;font-size:12px}
+iframe.video{width:100%;height:450px;border-radius:12px;border:0;background:#000}
+.meta{margin:10px 0 0;color:#aaa;font-size:13px;display:flex;gap:12px;flex-wrap:wrap}
+.acts{display:flex;gap:10px;margin-top:10px}.acts button,.acts a{flex:1;padding:12px;border-radius:50px;font-weight:800;border:0;text-align:center;text-decoration:none;font-size:14px}
 .watch{display:block;text-align:center;margin-top:10px;background:#fff;color:#000;padding:12px;border-radius:50px;font-weight:800;text-decoration:none}
-.cmt{margin-top:10px;background:#0f0f12;border-radius:12px;padding:10px}.cmt h4{color:#FFD700;font-size:13px;margin-bottom:6px}.cmt-box{display:flex;gap:6px}.cmt-box input{flex:1;background:#1e1e24;border:0;color:#fff;padding:10px;border-radius:50px;outline:none}.cmt-box button{background:#FFD700;border:0;padding:10px 14px;border-radius:50px;font-weight:800}
+.cmt{margin-top:10px;background:#0f0f12;border-radius:12px;padding:10px}.cmt h4{color:#FF0000;font-size:13px;margin-bottom:6px}.cmt-list div{background:#1e1e24;padding:8px;border-radius:8px;margin-bottom:5px;font-size:14px}.cmt-box{display:flex;gap:6px}.cmt-box input{flex:1;background:#1e1e24;border:0;color:#fff;padding:10px;border-radius:50px;outline:none}.cmt-box button{background:#FF0000;border:0;color:#fff;padding:10px 14px;border-radius:50px;font-weight:800}
+.playlists{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}.pl{background:#141418;border:1px solid #222;border-radius:16px;padding:16px}.pl.red{background:#FF0000}.pl b{font-size:18px}.pl span{color:#ccc;font-size:13px}
 .footer{text-align:center;color:#666;font-size:13px;margin-top:30px;padding:18px}
-.float-sub{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#FF0000;color:#fff;padding:13px 26px;border-radius:50px;font-weight:800;text-decoration:none;white-space:nowrap}
+.float-sub{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#FF0000;color:#fff;padding:13px 26px;border-radius:50px;font-weight:800;text-decoration:none;white-space:nowrap;z-index:99}
 .popup{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;align-items:center;justify-content:center;padding:20px}.popup.show{display:flex}.popup-box{background:#fff;color:#000;border-radius:22px;padding:26px 20px;text-align:center;max-width:360px;width:100%}
-@media(max-width:768px){.hero{grid-template-columns:1fr}.hero h1{font-size:44px}#heroPlayer{height:560px}.grid{grid-template-columns:1fr}}
+@media(max-width:768px){.hero h1{font-size:44px}#heroPlayer{height:560px}.grid{grid-template-columns:1fr}.playlists{grid-template-columns:1fr}.nav-links{display:none}}
 </style></head><body>
 
-<div style="background:#FFD700;color:#000;text-align:center;padding:12px;font-weight:900;letter-spacing:3px;font-size:18px">JIMMY</div>
+<div class="nav"><div class="logo">RAKAI</div><div class="nav-links"><a href="#">Home</a><a href="#">Videos</a><a href="#">Streams</a><a href="#">About</a><a href="#">Booking</a><a href="#">Contact</a></div><a class="nav-sub" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">SUBSCRIBE</a></div>
 
-<div class="nav"><div class="logo">LIVE<span>KING</span><i>4K</i></div><a class="nav-sub" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">SUBSCRIBE</a></div>
-<div class="hero"><div><h1>LIVE<br><em>KING</em><i>4K</i></h1><p>Welcome to the official home of LIVEKING4K. Watch newest videos first, subscribe on YouTube, never miss a drop.</p>
-<div class="stats"><div class="stat"><b id="subCount">...</b><span>SUBSCRIBERS • UPDATES EVERY 30s</span></div><div class="stat"><b id="videoCount">7+</b><span>VIDEOS</span></div><div class="stat"><b id="viewCount">...</b><span>VIEWS</span></div></div>
-<div class="btns"><a class="btn-red" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE ON YOUTUBE</a><a class="btn-ghost" href="https://youtube.com/@liveking4k" target="_blank">VISIT CHANNEL →</a></div></div>
-<div class="hero-box"><label>🔥 LATEST VIDEO</label><iframe id="heroPlayer" src="https://www.youtube.com/embed/FRb-Jg7l9BY" allowfullscreen></iframe><div class="mini"><button class="like-btn" onclick="like(this,'FRb-Jg7l9BY')">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div></div></div>
-<div class="sec"><h2>All Videos</h2><p>Newest at top • Oldest at bottom</p><div class="status">✅ LIVE SUB COUNT • Updates every 30 seconds • Popup after 1 minute</div><div class="grid" id="videoList"></div></div>
-<p class="footer"><b>LIVEKING4K</b> • youtube.com/@liveking4k</p>
-<a class="float-sub" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE TO LIVEKING4K</a>
+<div class="live-dot"><i></i> LIVE • <span id="liveSubs">...</span> SUBSCRIBERS</div>
 
-<div class="popup" id="popup"><div class="popup-box"><h2>🔔 LIVEKING4K</h2><p style="margin:10px 0">You have been watching for 1 minute!<br><b id="popupSubs">Join the family</b></p><a href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank" style="display:block;padding:14px;border-radius:50px;background:#FF0000;color:#fff;font-weight:800;text-decoration:none">SUBSCRIBE NOW ✅</a><br><button style="width:100%;padding:12px;border:0;border-radius:50px;background:#eee" onclick="closePopup()">Maybe Later</button></div></div>
+<div class="hero"><h1>RAKAI<br><span>YouTube Channel</span></h1><p>STREAMING • VLOGS • IRL • CHALLENGES<br>Live streams, daily vlogs, real-life challenges, and unfiltered content.</p>
+<div class="stats"><div class="stat"><b id="subCount">...</b><span>SUBSCRIBERS</span></div><div class="stat"><b id="videoCount">7+</b><span>VIDEOS</span></div><div class="stat"><b id="viewCount">...</b><span>VIEWS</span></div></div>
+<div class="btns"><a class="btn-red" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE NOW</a><a class="btn-ghost" href="https://youtube.com/@liveking4k" target="_blank">WATCH LATEST LIVE →</a></div></div>
+
+<div class="hero-box"><div class="hero-box-inner"><label>🔥 LATEST VIDEO • NEW</label><iframe id="heroPlayer" src="https://www.youtube.com/embed/FRb-Jg7l9BY" allowfullscreen></iframe><div class="meta" id="heroMeta"></div><div class="mini"><button class="like-btn" onclick="like(this)">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div></div></div>
+
+<div class="sec"><h2>Latest Videos</h2><p>Newest at top • Oldest at bottom</p><div class="grid" id="videoList"></div></div>
+
+<div class="sec"><h2>Popular Playlists</h2><div class="playlists"><div class="pl red"><b>IRL CHALLENGES</b><br><span>▶ 12 videos • Updated weekly</span></div><div class="pl"><b>STREAM VODS</b><br><span>▶ 24 videos • Full streams</span></div><div class="pl"><b>VLOGS</b><br><span>▶ 35 videos • Newest vlogs</span></div></div></div>
+
+<p class="footer"><b>RAKAI</b> • youtube.com/@liveking4k</p>
+<a class="float-sub" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE TO RAKAI</a>
+
+<div class="popup" id="popup"><div class="popup-box"><h2>🔔 RAKAI</h2><p style="margin:10px 0"><b id="popupSubs">Join the family</b></p><a href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank" style="display:block;padding:14px;border-radius:50px;background:#FF0000;color:#fff;font-weight:800;text-decoration:none">SUBSCRIBE NOW ✅</a><br><button style="width:100%;padding:12px;border:0;border-radius:50px;background:#eee" onclick="closePopup()">Maybe Later</button></div></div>
 
 <script>
-// FALLBACK - SHOWS INSTANTLY, NO WAITING FOR API
-const FALLBACK=["FRb-Jg7l9BY","7_9R04rSxX0","pUnLFOfy0PI","5eo5yZEdz4Y","XrOQ82Q3vP0","I3PjNKS-u_k","RLno79Gh2Es"];
+const VIDS=["FRb-Jg7l9BY","7_9R04rSxX0","pUnLFOfy0PI","5eo5yZEdz4Y","XrOQ82Q3vP0","I3PjNKS-u_k","RLno79Gh2Es"];
 const list=document.getElementById('videoList');
-function renderVideos(ids){
-  list.innerHTML="";
-  ids.forEach((id,i)=>{
-    const d=document.createElement('div'); d.className='card';
-    d.innerHTML=`<div class="card-top"><div class="num">${String(i+1).padStart(2,'0')} ${i==0?'• NEWEST':i==ids.length-1?'• OLDEST':''}</div><div class="tag">LIVEKING4K</div></div><iframe class="video" src="https://www.youtube.com/embed/${id}" allowfullscreen></iframe><div class="acts"><button class="like-btn" onclick="like(this,'${id}')">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div><a class="watch" href="https://youtu.be/${id}">▶ WATCH ON YOUTUBE</a><div class="cmt"><h4>💬 COMMENT • Goes to YouTube</h4><div class="cmt-box"><input placeholder="Write a comment..."><button onclick="goComment('${id}',this)">POST ON YOUTUBE →</button></div></div>`;
-    list.appendChild(d);
-  });
-}
-renderVideos(FALLBACK);
-
+VIDS.forEach((id,i)=>{
+  const d=document.createElement('div'); d.className='card';
+  d.innerHTML=`<div class="card-top"><div class="num">${String(i+1).padStart(2,'0')} ${i==0?'• NEWEST':i==6?'• OLDEST':''}</div><div class="tag">RAKAI</div></div><iframe class="video" src="https://www.youtube.com/embed/${id}" allowfullscreen></iframe><div class="meta" id="meta-${id}">Loading likes...</div><div class="acts"><button class="like-btn" onclick="like(this)">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div><a class="watch" href="https://youtu.be/${id}">▶ WATCH ON YOUTUBE</a><div class="cmt"><h4>💬 COMMENTS</h4><div class="cmt-list"></div><div class="cmt-box"><input placeholder="Write a comment..."><button onclick="addComment(this)">POST</button></div></div>`;
+  list.appendChild(d);
+});
 function fmt(n){if(n>=1e6)return (n/1e6).toFixed(1)+"M";if(n>=1e3)return (n/1e3).toFixed(1)+"K";return n}
-async function loadStats(){try{const r=await fetch(`https://yt.lemnoslife.com/channels?handle=@liveking4k`);const j=await r.json();const c=j.items?.[0];if(!c)return null;if(c.statistics?.subscriberCount!==undefined){document.getElementById('subCount').innerText=fmt(c.statistics.subscriberCount);document.getElementById('popupSubs').innerText=fmt(c.statistics.subscriberCount)+" subscribers already!"}if(c.statistics?.viewCount!==undefined)document.getElementById('viewCount').innerText=fmt(c.statistics.viewCount);if(c.statistics?.videoCount!==undefined)document.getElementById('videoCount').innerText=c.statistics.videoCount;return c.id}catch(e){return null}}
-async function tryAuto(){
-  const cid=await loadStats(); if(!cid) return;
+async function loadStats(){
+  try{
+    const r=await fetch(`https://yt.lemnoslife.com/channels?handle=@liveking4k`);
+    const j=await r.json(); const c=j.items?.[0]; if(!c) return null;
+    if(c.statistics?.subscriberCount!==undefined){document.getElementById('subCount').innerText=fmt(c.statistics.subscriberCount);document.getElementById('liveSubs').innerText=fmt(c.statistics.subscriberCount);document.getElementById('popupSubs').innerText=fmt(c.statistics.subscriberCount)+" subscribers already!"}
+    if(c.statistics?.viewCount!==undefined)document.getElementById('viewCount').innerText=fmt(c.statistics.viewCount);
+    if(c.statistics?.videoCount!==undefined)document.getElementById('videoCount').innerText=c.statistics.videoCount;
+    return c.id;
+  }catch(e){return null}
+}
+async function loadVideoStats(){
+  for(const id of VIDS){
+    try{
+      const r=await fetch(`https://yt.lemnoslife.com/videos?part=snippet,statistics&id=${id}`);
+      const j=await r.json(); const v=j.items?.[0]; if(!v) continue;
+      const s=v.statistics, t=v.snippet?.title||'';
+      const el=document.getElementById('meta-'+id);
+      if(el) el.innerHTML=`❤️ ${fmt(s.likeCount)} likes • 👁️ ${fmt(s.viewCount)} views • 💬 ${fmt(s.commentCount)} comments`;
+      if(id===VIDS[0]) document.getElementById('heroMeta').innerHTML=`❤️ ${fmt(s.likeCount)} likes • 👁️ ${fmt(s.viewCount)} views • 💬 ${fmt(s.commentCount)} comments • ${t}`;
+    }catch(e){}
+  }
+}
+async function check(){
+  const cid=await loadStats(); loadVideoStats();
+  if(!cid) return;
   try{
     const r=await fetch(`https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=${cid}`);
     const d=await r.json();
-    if(d.items?.length){
-      const ids=d.items.map(x=>x.link.split('v=')[1]).filter(Boolean);
-      if(ids.length && ids[0]!==FALLBACK[0]){
-        document.getElementById('heroPlayer').src=`https://www.youtube.com/embed/${ids[0]}`;
-        renderVideos(ids);
-      }
-    }
+    if(d.items?.length){const vid=d.items[0].link.split('v=')[1]; if(!document.getElementById('heroPlayer').src.includes(vid)){document.getElementById('heroPlayer').src=`https://www.youtube.com/embed/${vid}`}}
   }catch(e){}
 }
-tryAuto();
-setInterval(loadStats,30000);
-function like(b,vid){let s=b.querySelector('span'),n=parseInt(s.innerText);if(b.classList.contains('liked')){b.classList.remove('liked');b.innerHTML='❤️ LIKE • <span>'+(n-1)+'</span>'}else{b.classList.add('liked');b.innerHTML='❤️ LIKED • <span>'+(n+1)+'</span>';window.open('https://youtu.be/'+vid,'_blank')}}
-function goComment(vid,btn){window.open('https://youtu.be/'+vid,'_blank')}
-function openPopup(){document.getElementById('popup').classList.add('show')}function closePopup(){document.getElementById('popup').classList.remove('show')}
-setTimeout(openPopup,60000);
+check(); setInterval(()=>{loadStats(); loadVideoStats();},30000);
+function like(b){let s=b.querySelector('span'),n=parseInt(s.innerText);if(b.classList.contains('liked')){b.classList.remove('liked');b.innerHTML='❤️ LIKE • <span>'+(n-1)+'</span>'}else{b.classList.add('liked');b.innerHTML='❤️ LIKED • <span>'+(n+1)+'</span>'}}
+function addComment(b){let inp=b.parentElement.querySelector('input'),lst=b.parentElement.parentElement.querySelector('.cmt-list');if(!inp.value.trim())return;let div=document.createElement('div');div.innerText='👤 You: '+inp.value;lst.appendChild(div);inp.value=''}
+function openPopup(){document.getElementById('popup').classList.add('show')}function closePopup(){document.getElementById('popup').classList.remove('show')}setTimeout(openPopup,30000);
 </script></body></html>
