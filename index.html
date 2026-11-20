@@ -6,135 +6,96 @@
 <title>LIVEKING4K</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#050508;color:#fff;font-family:Arial,sans-serif;padding-bottom:90px}
-.topbar{background:#000;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;font-size:13px;position:sticky;top:0;z-index:50}
+body{background:#050508;color:#fff;font-family:Arial,sans-serif;padding-bottom:90px;overflow-x:hidden}
+.topbar{background:#000;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;font-size:13px;position:sticky;top:0;z-index:50}
 .topbar b{color:#ffe600}
-.hero-top{background:linear-gradient(135deg,#ff0050,#7b00ff,#00d4ff);padding:35px 20px 40px;text-align:center;border-bottom-left-radius:35px;border-bottom-right-radius:35px}
-.hero-top h1{font-size:52px}
+.hero-top{background:linear-gradient(135deg,#ff0050,#7b00ff,#00d4ff);padding:32px 20px;text-align:center}
+.hero-top h1{font-size:48px;line-height:1}
 .hero-top h1 span{color:#ffe600}
+.hero-top p{margin-top:8px;opacity:.9}
 .stats{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap}
-.stat{background:rgba(0,0,0,.35);padding:10px 18px;border-radius:50px;text-align:center}
+.stat{background:rgba(0,0,0,.35);padding:10px 18px;border-radius:50px;text-align:center;min-width:110px}
 .stat b{font-size:22px;display:block}
 .stat span{font-size:11px;letter-spacing:1px;opacity:.9}
 .live-dot{width:9px;height:9px;background:#00ff00;border-radius:50%;display:inline-block;animation:blink 1s infinite}
 @keyframes blink{50%{opacity:.3}}
-.main-sub{display:inline-block;margin-top:18px;background:#ff0000;color:#fff;padding:15px 32px;border-radius:50px;font-weight:bold;font-size:16px;text-decoration:none}
-
-/* --- DESKTOP FIX: WIDE LAYOUT --- */
-.container{max-width:1200px;margin:0 auto;padding:0 20px}
-.hero-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:center;max-width:1200px;margin:25px auto;padding:0 20px}
-.hero-text h2{font-size:44px;line-height:1.1}.hero-text h2 span{color:#ffe600}.hero-text p{color:#aaa;margin:12px 0}
-.hero-video h2{font-size:18px;margin-bottom:10px;color:#ffe600}
-#heroPlayer{width:100%;height:420px;border-radius:20px;border:3px solid #ff0050;background:#000}
-.hero-actions{display:flex;gap:10px;margin-top:12px}
-.hero-actions button,.hero-actions a{flex:1;border:0;padding:13px;border-radius:50px;font-weight:bold;text-align:center;text-decoration:none;font-size:14px}
-.like-btn{background:#2a2a3d;color:#fff}
-.sub-btn{background:#ff0000;color:#fff;display:block}
-.sub{text-align:center;color:#aaa;padding:20px 15px}
-
-.section{max-width:1200px;margin:30px auto;padding:0 20px}
-.section h2{font-size:28px;margin-bottom:4px}
+.main-sub{display:inline-block;margin-top:18px;background:#ff0000;color:#fff;padding:14px 30px;border-radius:50px;font-weight:bold;font-size:15px;text-decoration:none}
+.auto-box{background:#0f3d2e;border:1px solid #00c853;border-radius:12px;padding:11px;margin:16px auto;max-width:1200px;text-align:center;font-size:13px}
+.section{max-width:1200px;margin:28px auto;padding:0 20px}
+.section h2{font-size:26px;margin-bottom:4px}
 .section p{color:#888;font-size:14px;margin-bottom:16px}
-.long-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+/* LONG = 3 CLEAN COLUMNS DESKTOP */
+.long-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+/* SHORTS = 4 CLEAN COLUMNS DESKTOP */
 .short-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-
-.card{background:#1a1a28;border:1px solid #2a2a3d;border-radius:24px;padding:16px}
-.card-top{display:flex;justify-content:space-between;margin-bottom:12px}
-.num{background:linear-gradient(90deg,#ff0050,#ff8a00);padding:7px 14px;border-radius:50px;font-weight:bold;font-size:13px}
+.card{background:#1a1a28;border:1px solid #2a2a3d;border-radius:20px;padding:14px;display:flex;flex-direction:column}
+.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:8px}
+.num{background:linear-gradient(90deg,#ff0050,#ff8a00);padding:6px 12px;border-radius:50px;font-weight:bold;font-size:12px;white-space:nowrap}
 .num.short{background:linear-gradient(90deg,#00d4ff,#7b00ff)}
-.tag{color:#00d4ff;font-size:12px;font-weight:bold}
-iframe.video{width:100%;height:280px;border-radius:16px;border:0;background:#000}
-iframe.video.short{height:460px}
-.actions{display:flex;gap:10px;margin-top:14px}
-.actions button,.actions a{flex:1;border:0;padding:13px;border-radius:50px;font-weight:bold;text-align:center;text-decoration:none;font-size:14px}
-.watch{display:block;text-align:center;margin-top:10px;background:#fff;color:#000;padding:12px;border-radius:50px;font-weight:bold;text-decoration:none}
-.comments{margin-top:14px;background:#12121e;border-radius:16px;padding:12px}
-.comments h4{font-size:14px;color:#ffe600;margin-bottom:8px}
-.comment-list div{background:#222233;padding:8px 10px;border-radius:10px;margin-bottom:6px;font-size:14px}
-.comment-box{display:flex;gap:8px}
-.comment-box input{flex:1;background:#222233;border:0;color:#fff;padding:11px;border-radius:50px;outline:none}
-.comment-box button{background:#00d4ff;border:0;padding:11px 16px;border-radius:50px;font-weight:bold}
+.tag{color:#00d4ff;font-size:11px;font-weight:bold}
+/* FIXED RATIOS - NO MORE CUT OFF */
+.video-wrap{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:14px;overflow:hidden}
+.video-wrap.short{aspect-ratio:9/16}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.actions{display:flex;gap:8px;margin-top:12px}
+.actions button,.actions a{flex:1;border:0;padding:11px 8px;border-radius:50px;font-weight:bold;text-align:center;text-decoration:none;font-size:13px;cursor:pointer}
+.like-btn{background:#2a2a3d;color:#fff}
+.sub-btn{background:#ff0000;color:#fff}
+.watch{display:block;text-align:center;margin-top:8px;background:#fff;color:#000;padding:11px;border-radius:50px;font-weight:bold;text-decoration:none;font-size:13px}
+.comments{margin-top:12px;background:#12121e;border-radius:14px;padding:10px}
+.comments h4{font-size:13px;color:#ffe600;margin-bottom:8px}
+.comment-list div{background:#222233;padding:8px 10px;border-radius:10px;margin-bottom:6px;font-size:13px;word-break:break-word}
+.comment-box{display:flex;gap:6px}
+.comment-box input{flex:1;min-width:0;background:#222233;border:0;color:#fff;padding:10px;border-radius:50px;outline:none;font-size:13px}
+.comment-box button{background:#00d4ff;border:0;padding:10px 14px;border-radius:50px;font-weight:bold;cursor:pointer}
 .popup{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:99;align-items:center;justify-content:center;padding:20px}
 .popup.show{display:flex}
-.popup-box{background:#fff;color:#000;border-radius:25px;padding:30px 22px;text-align:center;max-width:360px;width:100%}
-.float-sub{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#ff0000;color:#fff;padding:14px 28px;border-radius:50px;font-weight:bold;z-index:90;white-space:nowrap;text-decoration:none}
+.popup-box{background:#fff;color:#000;border-radius:25px;padding:28px 22px;text-align:center;max-width:360px;width:100%}
+.float-sub{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#ff0000;color:#fff;padding:13px 24px;border-radius:50px;font-weight:bold;z-index:90;white-space:nowrap;text-decoration:none;font-size:14px}
 .footer{text-align:center;color:#777;font-size:13px;margin-top:30px}
-.auto-box{background:#0f3d2e;border:1px solid #00c853;border-radius:16px;padding:12px;margin:15px auto;max-width:1200px;text-align:center;font-size:14px}
-
-/* PHONE = STILL 1 COLUMN */
-@media(max-width:768px){
-.hero-layout{grid-template-columns:1fr}
-.hero-text h2{font-size:32px}
-#heroPlayer{height:620px}
-.long-grid{grid-template-columns:1fr}
-.short-grid{grid-template-columns:1fr 1fr}
-iframe.video{height:600px}
-iframe.video.short{height:320px}
-}
-/* SMALL PHONE */
-@media(max-width:480px){
-.short-grid{grid-template-columns:1fr}
-}
+/* TABLET */
+@media(max-width:900px){.long-grid{grid-template-columns:repeat(2,1fr)}.short-grid{grid-template-columns:repeat(2,1fr)}}
+/* PHONE */
+@media(max-width:600px){.hero-top h1{font-size:36px}.long-grid{grid-template-columns:1fr}.short-grid{grid-template-columns:1fr}.section{padding:0 14px}}
 </style>
 </head>
 <body>
 
-<div class="topbar">
-<div>🔴 <b>LIVEKING4K</b></div>
-<div><span class="live-dot"></span> <b id="topSubCount">...</b> Subscribers • LIVE</div>
-</div>
+<div class="topbar"><div>🔴 <b>LIVEKING4K</b></div><div><span class="live-dot"></span> <b id="topSubCount">...</b> Subscribers • LIVE</div></div>
 
 <div class="hero-top">
 <h1>LIVE<span>KING</span>4K</h1>
-<p>Official Website • New Videos Every Time</p>
+<p>Official Website • Watch. Like. Subscribe. 🔥</p>
 <div class="stats">
 <div class="stat"><b id="subCount">Loading...</b><span>SUBSCRIBERS • LIVE</span></div>
 <div class="stat"><b id="videoCount">7+</b><span>VIDEOS</span></div>
 <div class="stat"><b id="viewCount">...</b><span>VIEWS</span></div>
 </div>
 <a class="main-sub" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE ON YOUTUBE</a>
-<p style="font-size:12px;margin-top:10px;opacity:.8">Tap → Subscribe pops up → Tap Subscribe → It adds instantly ✅</p>
 </div>
 
-<div class="auto-box">✅ LIVE SYNC: Subscriber count updates every 30 seconds. New videos appear at the TOP automatically.</div>
+<div class="auto-box">✅ LIVE SYNC: Subscriber count updates every 30 seconds. • <span id="autoStatus">Checking for new videos...</span></div>
 
-<!-- HERO - DESKTOP SIDE BY SIDE -->
-<div class="hero-layout">
-<div class="hero-text">
-<h2>Watch. <span>Like.</span><br>Subscribe. 🔥</h2>
-<p>Welcome to the official home of LIVEKING4K. Long videos and Shorts separated, newest at top. Tap any video to watch on YouTube.</p>
-<p style="font-size:13px"><span id="autoStatus">Checking for new videos...</span></p>
-</div>
-<div class="hero-video">
-<h2>🔥 LATEST VIDEO <span>NEW</span></h2>
-<iframe id="heroPlayer" src="https://www.youtube.com/embed/FRb-Jg7l9BY" allowfullscreen></iframe>
-<div class="hero-actions">
-<button class="like-btn" onclick="like(this)">❤️ LIKE • <span>0</span></button>
-<a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a>
-</div>
-</div>
-</div>
-
-<!-- ========== LONG FORM ========== -->
+<!-- LONG FORM - EACH VIDEO ONLY ONCE -->
 <div class="section">
 <h2>🎬 LONG FORM VIDEOS</h2>
-<p>Full videos • Watch all the way • Newest at top</p>
-<div class="long-grid">
-<div class="card"><div class="card-top"><div class="num">LONG • NEWEST</div><div class="tag">LIVEKING4K</div></div><iframe class="video" src="https://www.youtube.com/embed/FRb-Jg7l9BY" allowfullscreen></iframe><div class="actions"><button class="like-btn" onclick="like(this)">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div><a class="watch" href="https://youtu.be/FRb-Jg7l9BY?si=AttFvPHhgrkSlrf6">▶ WATCH ON YOUTUBE</a><div class="comments"><h4>💬 COMMENTS</h4><div class="comment-list"></div><div class="comment-box"><input placeholder="Write a comment..."><button onclick="addComment(this)">POST</button></div></div></div>
-<div class="card"><div class="card-top"><div class="num">LONG • 2</div><div class="tag">LIVEKING4K</div></div><iframe class="video" src="https://www.youtube.com/embed/7_9R04rSxX0" allowfullscreen></iframe><div class="actions"><button class="like-btn" onclick="like(this)">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div><a class="watch" href="https://youtu.be/7_9R04rSxX0?si=Q2e2I6DERxPib5qh">▶ WATCH ON YOUTUBE</a><div class="comments"><h4>💬 COMMENTS</h4><div class="comment-list"></div><div class="comment-box"><input placeholder="Write a comment..."><button onclick="addComment(this)">POST</button></div></div></div>
-<div class="card"><div class="card-top"><div class="num">LONG • 3</div><div class="tag">LIVEKING4K</div></div><iframe class="video" src="https://www.youtube.com/embed/pUnLFOfy0PI" allowfullscreen></iframe><div class="actions"><button class="like-btn" onclick="like(this)">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div><a class="watch" href="https://youtu.be/pUnLFOfy0PI?si=-cdKSwxxoHlNw-hQ">▶ WATCH ON YOUTUBE</a><div class="comments"><h4>💬 COMMENTS</h4><div class="comment-list"></div><div class="comment-box"><input placeholder="Write a comment..."><button onclick="addComment(this)">POST</button></div></div></div>
+<p>Full videos • Newest at top</p>
+<div class="long-grid" id="longList">
+<div class="card"><div class="card-top"><div class="num">LONG • NEWEST</div><div class="tag">LIVEKING4K</div></div><div class="video-wrap"><iframe src="https://www.youtube.com/embed/FRb-Jg7l9BY" allowfullscreen></iframe></div><div class="actions"><button class="like-btn" onclick="like(this)">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div><a class="watch" href="https://youtu.be/FRb-Jg7l9BY">▶ WATCH ON YOUTUBE</a><div class="comments"><h4>💬 COMMENTS</h4><div class="comment-list"></div><div class="comment-box"><input placeholder="Write a comment..."><button onclick="addComment(this)">POST</button></div></div></div>
+<div class="card"><div class="card-top"><div class="num">LONG • 2</div><div class="tag">LIVEKING4K</div></div><div class="video-wrap"><iframe src="https://www.youtube.com/embed/7_9R04rSxX0" allowfullscreen></iframe></div><div class="actions"><button class="like-btn" onclick="like(this)">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div><a class="watch" href="https://youtu.be/7_9R04rSxX0">▶ WATCH ON YOUTUBE</a><div class="comments"><h4>💬 COMMENTS</h4><div class="comment-list"></div><div class="comment-box"><input placeholder="Write a comment..."><button onclick="addComment(this)">POST</button></div></div></div>
+<div class="card"><div class="card-top"><div class="num">LONG • 3</div><div class="tag">LIVEKING4K</div></div><div class="video-wrap"><iframe src="https://www.youtube.com/embed/pUnLFOfy0PI" allowfullscreen></iframe></div><div class="actions"><button class="like-btn" onclick="like(this)">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div><a class="watch" href="https://youtu.be/pUnLFOfy0PI">▶ WATCH ON YOUTUBE</a><div class="comments"><h4>💬 COMMENTS</h4><div class="comment-list"></div><div class="comment-box"><input placeholder="Write a comment..."><button onclick="addComment(this)">POST</button></div></div></div>
 </div>
 </div>
 
-<!-- ========== SHORTS ========== -->
+<!-- SHORTS - EACH VIDEO ONLY ONCE -->
 <div class="section">
 <h2>📱 SHORTS</h2>
-<p>Quick videos • Swipe style • Newest first</p>
+<p>Quick videos • Newest first</p>
 <div class="short-grid" id="shortsList">
-<div class="card"><div class="card-top"><div class="num short">SHORT • NEWEST</div><div class="tag">LIVEKING4K</div></div><iframe class="video short" src="https://www.youtube.com/embed/5eo5yZEdz4Y" allowfullscreen></iframe><div class="actions"><button class="like-btn" onclick="like(this)">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div><a class="watch" href="https://youtube.com/shorts/5eo5yZEdz4Y?si=ol1Yu6vKiCTGOoOY">▶ WATCH ON YOUTUBE</a><div class="comments"><h4>💬 COMMENTS</h4><div class="comment-list"></div><div class="comment-box"><input placeholder="Write a comment..."><button onclick="addComment(this)">POST</button></div></div></div>
-<div class="card"><div class="card-top"><div class="num short">SHORT • 2</div><div class="tag">LIVEKING4K</div></div><iframe class="video short" src="https://www.youtube.com/embed/XrOQ82Q3vP0" allowfullscreen></iframe><div class="actions"><button class="like-btn" onclick="like(this)">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div><a class="watch" href="https://youtube.com/shorts/XrOQ82Q3vP0?si=iXyEhNq0SW0X3wMB">▶ WATCH ON YOUTUBE</a><div class="comments"><h4>💬 COMMENTS</h4><div class="comment-list"></div><div class="comment-box"><input placeholder="Write a comment..."><button onclick="addComment(this)">POST</button></div></div></div>
-<div class="card"><div class="card-top"><div class="num short">SHORT • 3</div><div class="tag">LIVEKING4K</div></div><iframe class="video short" src="https://www.youtube.com/embed/I3PjNKS-u_k" allowfullscreen></iframe><div class="actions"><button class="like-btn" onclick="like(this)">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div><a class="watch" href="https://youtube.com/shorts/I3PjNKS-u_k?si=wzP-20-D-Ykhgv_r">▶ WATCH ON YOUTUBE</a><div class="comments"><h4>💬 COMMENTS</h4><div class="comment-list"></div><div class="comment-box"><input placeholder="Write a comment..."><button onclick="addComment(this)">POST</button></div></div></div>
-<div class="card"><div class="card-top"><div class="num short">SHORT • OLDEST</div><div class="tag">LIVEKING4K</div></div><iframe class="video short" src="https://www.youtube.com/embed/RLno79Gh2Es" allowfullscreen></iframe><div class="actions"><button class="like-btn" onclick="like(this)">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div><a class="watch" href="https://youtube.com/shorts/RLno79Gh2Es?si=DLRhywsXZGm8sAUG">▶ WATCH ON YOUTUBE</a><div class="comments"><h4>💬 COMMENTS</h4><div class="comment-list"></div><div class="comment-box"><input placeholder="Write a comment..."><button onclick="addComment(this)">POST</button></div></div></div>
+<div class="card"><div class="card-top"><div class="num short">SHORT • NEWEST</div><div class="tag">LIVEKING4K</div></div><div class="video-wrap short"><iframe src="https://www.youtube.com/embed/5eo5yZEdz4Y" allowfullscreen></iframe></div><div class="actions"><button class="like-btn" onclick="like(this)">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div><a class="watch" href="https://youtube.com/shorts/5eo5yZEdz4Y">▶ WATCH ON YOUTUBE</a><div class="comments"><h4>💬 COMMENTS</h4><div class="comment-list"></div><div class="comment-box"><input placeholder="Write a comment..."><button onclick="addComment(this)">POST</button></div></div></div>
+<div class="card"><div class="card-top"><div class="num short">SHORT • 2</div><div class="tag">LIVEKING4K</div></div><div class="video-wrap short"><iframe src="https://www.youtube.com/embed/XrOQ82Q3vP0" allowfullscreen></iframe></div><div class="actions"><button class="like-btn" onclick="like(this)">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div><a class="watch" href="https://youtube.com/shorts/XrOQ82Q3vP0">▶ WATCH ON YOUTUBE</a><div class="comments"><h4>💬 COMMENTS</h4><div class="comment-list"></div><div class="comment-box"><input placeholder="Write a comment..."><button onclick="addComment(this)">POST</button></div></div></div>
+<div class="card"><div class="card-top"><div class="num short">SHORT • 3</div><div class="tag">LIVEKING4K</div></div><div class="video-wrap short"><iframe src="https://www.youtube.com/embed/I3PjNKS-u_k" allowfullscreen></iframe></div><div class="actions"><button class="like-btn" onclick="like(this)">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div><a class="watch" href="https://youtube.com/shorts/I3PjNKS-u_k">▶ WATCH ON YOUTUBE</a><div class="comments"><h4>💬 COMMENTS</h4><div class="comment-list"></div><div class="comment-box"><input placeholder="Write a comment..."><button onclick="addComment(this)">POST</button></div></div></div>
+<div class="card"><div class="card-top"><div class="num short">SHORT • OLDEST</div><div class="tag">LIVEKING4K</div></div><div class="video-wrap short"><iframe src="https://www.youtube.com/embed/RLno79Gh2Es" allowfullscreen></iframe></div><div class="actions"><button class="like-btn" onclick="like(this)">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div><a class="watch" href="https://youtube.com/shorts/RLno79Gh2Es">▶ WATCH ON YOUTUBE</a><div class="comments"><h4>💬 COMMENTS</h4><div class="comment-list"></div><div class="comment-box"><input placeholder="Write a comment..."><button onclick="addComment(this)">POST</button></div></div></div>
 </div>
 </div>
 
@@ -156,22 +117,7 @@ async function loadStats(){
     return ch.id;
   }catch(e){ return null; }
 }
-async function checkNewVideo(){
-  const channelId=await loadStats(); if(!channelId){ document.getElementById('autoStatus').innerText="Showing your 7 videos"; return; }
-  try{
-    const rssRes=await fetch(`https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`);
-    const rssData=await rssRes.json();
-    if(rssData.items && rssData.items.length>0){
-      const newest=rssData.items[0]; const videoId=newest.link.split('v=')[1];
-      if(!document.getElementById('heroPlayer').src.includes(videoId)){
-        document.getElementById('heroPlayer').src=`https://www.youtube.com/embed/${videoId}`;
-        document.getElementById('autoStatus').innerText="✅ NEW VIDEO FOUND: "+newest.title;
-      } else document.getElementById('autoStatus').innerText="✅ Up to date";
-    }
-  }catch(e){}
-}
-checkNewVideo();
-setInterval(loadStats, 30000);
+loadStats(); setInterval(loadStats, 30000);
 function like(btn){ let span=btn.querySelector('span'); let n=parseInt(span.innerText); if(btn.classList.contains('liked')){ btn.classList.remove('liked'); btn.innerHTML='❤️ LIKE • <span>'+(n-1)+'</span>'; } else { btn.classList.add('liked'); btn.innerHTML='❤️ LIKED • <span>'+(n+1)+'</span>'; } }
 function addComment(btn){ let input=btn.parentElement.querySelector('input'); let list=btn.parentElement.parentElement.querySelector('.comment-list'); if(!input.value.trim()) return; let div=document.createElement('div'); div.innerText='👤 You: '+input.value; list.appendChild(div); input.value=''; }
 function openPopup(){ document.getElementById('popup').classList.add('show'); }
