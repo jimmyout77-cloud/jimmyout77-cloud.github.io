@@ -30,41 +30,46 @@ iframe.video{width:100%;height:450px;border-radius:12px;border:0;background:#000
 
 <div class="nav"><div class="logo">LIVE<span>KING</span><i>4K</i></div><a class="nav-sub" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">SUBSCRIBE</a></div>
 <div class="hero"><div><h1>LIVE<br><em>KING</em><i>4K</i></h1><p>Welcome to the official home of LIVEKING4K. Watch newest videos first, subscribe on YouTube, never miss a drop.</p>
-<div class="stats"><div class="stat"><b id="subCount">...</b><span>SUBSCRIBERS • UPDATES EVERY 30s</span></div><div class="stat"><b id="videoCount">...</b><span>VIDEOS</span></div><div class="stat"><b id="viewCount">...</b><span>VIEWS</span></div></div>
+<div class="stats"><div class="stat"><b id="subCount">...</b><span>SUBSCRIBERS • UPDATES EVERY 30s</span></div><div class="stat"><b id="videoCount">7+</b><span>VIDEOS</span></div><div class="stat"><b id="viewCount">...</b><span>VIEWS</span></div></div>
 <div class="btns"><a class="btn-red" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE ON YOUTUBE</a><a class="btn-ghost" href="https://youtube.com/@liveking4k" target="_blank">VISIT CHANNEL →</a></div></div>
-<div class="hero-box"><label>🔥 LATEST VIDEO • AUTO UPDATES</label><iframe id="heroPlayer" src="" allowfullscreen></iframe><div class="mini"><button class="like-btn" onclick="like(this,currentHero)">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div></div></div>
-<div class="sec"><h2>All Videos</h2><p>100% Auto • Newest at top • Pulls straight from YouTube</p><div class="status">✅ AUTO SYNC • New uploads appear automatically • Popup after 1 minute</div><div class="grid" id="videoList"><p id="loading" style="color:#888">Loading videos from YouTube...</p></div></div>
+<div class="hero-box"><label>🔥 LATEST VIDEO</label><iframe id="heroPlayer" src="https://www.youtube.com/embed/FRb-Jg7l9BY" allowfullscreen></iframe><div class="mini"><button class="like-btn" onclick="like(this,'FRb-Jg7l9BY')">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div></div></div>
+<div class="sec"><h2>All Videos</h2><p>Newest at top • Oldest at bottom</p><div class="status">✅ LIVE SUB COUNT • Updates every 30 seconds • Popup after 1 minute</div><div class="grid" id="videoList"></div></div>
 <p class="footer"><b>LIVEKING4K</b> • youtube.com/@liveking4k</p>
 <a class="float-sub" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE TO LIVEKING4K</a>
 
 <div class="popup" id="popup"><div class="popup-box"><h2>🔔 LIVEKING4K</h2><p style="margin:10px 0">You have been watching for 1 minute!<br><b id="popupSubs">Join the family</b></p><a href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank" style="display:block;padding:14px;border-radius:50px;background:#FF0000;color:#fff;font-weight:800;text-decoration:none">SUBSCRIBE NOW ✅</a><br><button style="width:100%;padding:12px;border:0;border-radius:50px;background:#eee" onclick="closePopup()">Maybe Later</button></div></div>
 
 <script>
-let currentHero="";
+// FALLBACK - SHOWS INSTANTLY, NO WAITING FOR API
+const FALLBACK=["FRb-Jg7l9BY","7_9R04rSxX0","pUnLFOfy0PI","5eo5yZEdz4Y","XrOQ82Q3vP0","I3PjNKS-u_k","RLno79Gh2Es"];
+const list=document.getElementById('videoList');
+function renderVideos(ids){
+  list.innerHTML="";
+  ids.forEach((id,i)=>{
+    const d=document.createElement('div'); d.className='card';
+    d.innerHTML=`<div class="card-top"><div class="num">${String(i+1).padStart(2,'0')} ${i==0?'• NEWEST':i==ids.length-1?'• OLDEST':''}</div><div class="tag">LIVEKING4K</div></div><iframe class="video" src="https://www.youtube.com/embed/${id}" allowfullscreen></iframe><div class="acts"><button class="like-btn" onclick="like(this,'${id}')">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div><a class="watch" href="https://youtu.be/${id}">▶ WATCH ON YOUTUBE</a><div class="cmt"><h4>💬 COMMENT • Goes to YouTube</h4><div class="cmt-box"><input placeholder="Write a comment..."><button onclick="goComment('${id}',this)">POST ON YOUTUBE →</button></div></div>`;
+    list.appendChild(d);
+  });
+}
+renderVideos(FALLBACK);
+
 function fmt(n){if(n>=1e6)return (n/1e6).toFixed(1)+"M";if(n>=1e3)return (n/1e3).toFixed(1)+"K";return n}
 async function loadStats(){try{const r=await fetch(`https://yt.lemnoslife.com/channels?handle=@liveking4k`);const j=await r.json();const c=j.items?.[0];if(!c)return null;if(c.statistics?.subscriberCount!==undefined){document.getElementById('subCount').innerText=fmt(c.statistics.subscriberCount);document.getElementById('popupSubs').innerText=fmt(c.statistics.subscriberCount)+" subscribers already!"}if(c.statistics?.viewCount!==undefined)document.getElementById('viewCount').innerText=fmt(c.statistics.viewCount);if(c.statistics?.videoCount!==undefined)document.getElementById('videoCount').innerText=c.statistics.videoCount;return c.id}catch(e){return null}}
-async function loadVideos(){
+async function tryAuto(){
   const cid=await loadStats(); if(!cid) return;
   try{
     const r=await fetch(`https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=${cid}`);
     const d=await r.json();
-    if(!d.items?.length) return;
-    const list=document.getElementById('videoList'); list.innerHTML="";
-    // HERO = newest
-    const heroId=d.items[0].link.split('v=')[1];
-    currentHero=heroId;
-    document.getElementById('heroPlayer').src=`https://www.youtube.com/embed/${heroId}`;
-    // GRID = all videos from feed
-    d.items.forEach((item,i)=>{
-      const id=item.link.split('v=')[1];
-      const title=item.title.replace(/</g,"&lt;");
-      const card=document.createElement('div'); card.className='card';
-      card.innerHTML=`<div class="card-top"><div class="num">${String(i+1).padStart(2,'0')} ${i==0?'• NEWEST':''}</div><div class="tag">LIVEKING4K</div></div><p style="font-weight:800;margin-bottom:10px;line-height:1.3">${title}</p><iframe class="video" src="https://www.youtube.com/embed/${id}" allowfullscreen></iframe><div class="acts"><button class="like-btn" onclick="like(this,'${id}')">❤️ LIKE • <span>0</span></button><a class="sub-btn" href="https://www.youtube.com/@liveking4k?sub_confirmation=1" target="_blank">🔔 SUBSCRIBE</a></div><a class="watch" href="https://youtu.be/${id}">▶ WATCH ON YOUTUBE</a><div class="cmt"><h4>💬 COMMENT • Goes to YouTube</h4><div class="cmt-box"><input placeholder="Write a comment..."><button onclick="goComment('${id}',this)">POST ON YOUTUBE →</button></div></div>`;
-      list.appendChild(card);
-    });
+    if(d.items?.length){
+      const ids=d.items.map(x=>x.link.split('v=')[1]).filter(Boolean);
+      if(ids.length && ids[0]!==FALLBACK[0]){
+        document.getElementById('heroPlayer').src=`https://www.youtube.com/embed/${ids[0]}`;
+        renderVideos(ids);
+      }
+    }
   }catch(e){}
 }
-loadVideos();
+tryAuto();
 setInterval(loadStats,30000);
 function like(b,vid){let s=b.querySelector('span'),n=parseInt(s.innerText);if(b.classList.contains('liked')){b.classList.remove('liked');b.innerHTML='❤️ LIKE • <span>'+(n-1)+'</span>'}else{b.classList.add('liked');b.innerHTML='❤️ LIKED • <span>'+(n+1)+'</span>';window.open('https://youtu.be/'+vid,'_blank')}}
 function goComment(vid,btn){window.open('https://youtu.be/'+vid,'_blank')}
